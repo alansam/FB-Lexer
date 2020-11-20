@@ -41,7 +41,8 @@ int fail(void)  /* TODO: fix - "This function declaration is not a prototype" */
       start = 100;
       break;
 
-    default:assert(0);
+    default:
+      assert(0);
       break;
   }
   return start;
@@ -65,28 +66,28 @@ int yylex(void) /* TODO: fix - "This function declaration is not a prototype" */
           incr_lexptr(&fwd);
           if (c == '\n') ++lc;
         }
-         else
-         {
-           switch (c)
-           {
-             case '<':
-               state =1;
-               break;
+        else
+        {
+          switch (c)
+          {
+            case '<':
+              state =1;
+              break;
 
-             case '=':
-               state = 5;
-               break;
+            case '=':
+              state = 5;
+              break;
 
-             case '>':
-               state = 6;
-               break;
-         
-             default:
-               state = fail();
-               break;
-           }
-         }
-         break;
+            case '>':
+              state = 6;
+              break;
+        
+            default:
+              state = fail();
+              break;
+          }
+        }
+        break;
 
       case 1:
            c = nextchar();
@@ -196,7 +197,7 @@ int yylex(void) /* TODO: fix - "This function declaration is not a prototype" */
 
       case 16:
         c = nextchar();
-        if( c == '+' || c == '-') state  = 17;
+        if ( c == '+' || c == '-') state  = 17;
         else if (isdigit(c)) state = 18;
         else state = fail();
         break;

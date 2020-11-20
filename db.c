@@ -62,19 +62,18 @@ void get_lexeme(char * buf)
 void incr_lexptr(int * counter)
 {
     ++(*(counter));
-    switch(*counter)
+    switch (*counter)
     {
-    case SINGLE_BUF_SIZE - 1:
+      case SINGLE_BUF_SIZE - 1:
         ++*counter;
         break;
 
       case 2 * SINGLE_BUF_SIZE - 1:
         *counter = 0;
         break;
-    default:
+      default:
         break;
     }
-
 }
 
 void retract(int n)
@@ -82,7 +81,7 @@ void retract(int n)
     //if n is equal to 0, it means push back everything that has been read
     //if n is equal to 1, push back the last character read
 
-    switch(n)
+    switch (n)
     {
     case 0:
         fwd = lexptr;
@@ -98,7 +97,7 @@ void decr_lexptr(int * counter)
 {
 
     --*counter;
-    switch(*counter)
+    switch (*counter)
     {
     case SINGLE_BUF_SIZE - 1:
         --*counter;
@@ -147,11 +146,11 @@ int nextchar(void)  /* TODO: fix - "This function declaration is not a prototype
 int end_of_first_half(int ptr)
 {
     return ptr == SINGLE_BUF_SIZE-1;
-
 }
+
 int end_of_second_half(int ptr)
 {
-    return ptr == 2*SINGLE_BUF_SIZE-1;
+    return ptr == 2 * SINGLE_BUF_SIZE - 1;
 }
 
 void destroy_dbuf(void) /* TODO: fix - "This function declaration is not a prototype" */

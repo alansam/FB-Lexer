@@ -49,6 +49,6 @@ int parser_main(void)
     load_keywords();
     yyparse();
     destroy_dbuf();
-    return 0;
 
+    return 0;
 }
